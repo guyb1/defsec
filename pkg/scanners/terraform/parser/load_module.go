@@ -63,6 +63,7 @@ func (e *evaluator) loadModules(ctx context.Context) []*ModuleDefinition {
 				}
 				continue
 			}
+			fmt.Println(fmt.Errorf("failed to load module '%s': %w", moduleBlock.Label(), err))
 			e.debug.Log("Failed to load module '%s'. Maybe try 'terraform init'?", err)
 			continue
 		}
